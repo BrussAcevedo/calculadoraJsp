@@ -21,21 +21,21 @@
 			<h1>Calculadora</h1>
 		</div>
 
-		<form action="MostrarResultados" method="Post">
+		<form action="MostrarResultados" method="Post" autocomplete="off">
 			<div class="numA py-2">
 				<input class="form-control form-control-lg backgroundTransparent"
 					type="text" placeholder="Número 1"
-					aria-label=".form-control-lg example" name="TxtNumA">
+					aria-label=".form-control-lg example" name="TxtNumA" required>
 			</div>
 
 			<div class="numB py-2">
 				<input class="form-control form-control-lg backgroundTransparent"
 					type="text" placeholder="Número 2"
-					aria-label=".form-control-lg example" name="TxtNumB">
+					aria-label=".form-control-lg example" name="TxtNumB" required>
 			</div>
 
 			<div class="operacion py-2">
-				<select class="form-select" id="txtDias" name="operacionSelect"
+				<select class="form-select backgroundTransparent" id="txtDias" name="operacionSelect"
 					required>
 					<option selected>Selecciona la operacion...</option>
 					<option value="suma">Suma</option>
