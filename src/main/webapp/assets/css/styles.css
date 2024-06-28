@@ -1,0 +1,41 @@
+.txtBlanco{
+	color: white;
+}
+
+.margen{
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.backgroundColor{
+	background-color: #11191F;
+}
+
+.backgroundTransparent{
+	background-color: transparent;
+}
+
+.opacidad{
+	opacity: 0.95;
+	
+}
+
+.form-control{
+	color: white;
+	border: 2px solid rgba(202, 240, 249, 0.2);
+	
+}
+
+.form-control::placeholder{
+	color: rgba(255, 255, 255, 0.5);
+}
+
+
+.form-select{
+	border: 2px solid rgba(255, 255, 255, 0.2) ;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+ .form-select option {
+            color: #000000;
+        }
