@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cl.desafioLatam.exceptions.NumeroNoEnteroException;
 import cl.desafioLatam.model.Operacion;
 import cl.desafioLatam.servicio.OperacionServicio;
+import cl.desafioLatam.utilidad.Utilidad;
 
 /**
  * Servlet implementation class MostrarResultados
@@ -37,17 +39,29 @@ public class MostrarResultados extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int numA =  Integer.parseInt(request.getParameter("TxtNumA"));
-		int numB =  Integer.parseInt(request.getParameter("TxtNumB"));
-		Operacion operacion = new Operacion(numA, numB);
+		int numA =0;
+		int numB =0;
+		 
+		try {
+			numA = Utilidad.parsearValidarEntero(request.getParameter("TxtNumA"));
+			numB = Utilidad.parsearValidarEntero(request.getParameter("TxtNumB"));
+			
+			Operacion operacion = new Operacion(numA, numB);
+			OperacionServicio operacionServicio = new OperacionServicio(operacion, "suma");
+			String resultado = operacionServicio.seleccionOperacion();
+			
+			request.setAttribute("resultado", resultado);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
+			
+		} catch (NumeroNoEnteroException e) {
+			String msjError = e.getMessage();
+			request.setAttribute("resultado", msjError);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 		
-		OperacionServicio operacionServicio = new OperacionServicio(operacion, "suma");
+	
 
-		String resultado = operacionServicio.seleccionOperacion();
-		
-		request.setAttribute("resultado", resultado);
-		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }

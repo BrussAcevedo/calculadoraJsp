@@ -1,6 +1,5 @@
 package cl.desafioLatam.model;
 
-import cl.desafioLatam.exceptions.DivisionPorCeroException;
 
 public class Operacion {
 	private int a;

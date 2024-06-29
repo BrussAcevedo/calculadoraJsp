@@ -12,7 +12,7 @@ public class Utilidad {
 			return Integer.parseInt(numeroStr);
 			 
 		}
-		throw new NumeroNoEnteroException("Dato de entrada no es entero.");
+		throw new NumeroNoEnteroException("ERROR: Datos de entradas no correspondena a un valor de tipo entero. Porfavor. Vuelve a intentarlo.");
 		
 		
 	}

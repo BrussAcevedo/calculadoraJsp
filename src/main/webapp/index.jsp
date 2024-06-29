@@ -21,7 +21,7 @@
 			<h1>Calculadora</h1>
 		</div>
 
-		<form action="MostrarResultados" method="Post" autocomplete="off">
+		<form id = "formulario1" action="MostrarResultados" method="Post" autocomplete="off">
 			<div class="numA py-2">
 				<input class="form-control form-control-lg backgroundTransparent"
 					type="text" placeholder="Número 1"
@@ -66,8 +66,6 @@
 			%>
 		</div>
 	</section>
-
-
 
 
 	<script
