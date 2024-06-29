@@ -1,5 +1,4 @@
 package cl.desafioLatam.servicio;
-
 import cl.desafioLatam.model.Operacion;
 
 public class OperacionServicio {
@@ -41,7 +40,7 @@ public void setEntradaOperacion(String entradaOperacion) {
 
 
 public String seleccionOperacion() {
-	String resultado;
+	String resultado = null;
 	
 	switch (entradaOperacion) {
 	case "suma": {
@@ -57,7 +56,8 @@ public String seleccionOperacion() {
 		break;
 	}
 	case "division": {
-		resultado = servicioDivision();
+
+			resultado = servicioDivision();
 		break;
 	}
 	case "ordenarNum": {
@@ -79,29 +79,32 @@ public String seleccionOperacion() {
 }
 	
 	public String servicioSuma() {
-		return String.format("El resultado de %d + %d es, %d", operacion.getA(), operacion.getB(),operacion.operacionSuma());
+		return String.format("El resultado de %d + %d es: %d", operacion.getA(), operacion.getB(),operacion.operacionSuma());
 		
 	}
 	
 	
 	public String servicioResta() {
-		return String.format("El resultado de %d - %d es, %d", operacion.getA(), operacion.getB(),operacion.operacionResta());
+		return String.format("El resultado de %d - %d es: %d", operacion.getA(), operacion.getB(),operacion.operacionResta());
 		
 	}
 	
 	public String servicioMultiplicacion() {
-		return String.format("El resultado de %d * %d es, %d", operacion.getA(), operacion.getB(),operacion.operacionMultiplicacion());
+		return String.format("El resultado de %d * %d es: %d", operacion.getA(), operacion.getB(),operacion.operacionMultiplicacion());
 		
 	}
 	
 	public String servicioDivision() {
-		return String.format("El resultado de %d / %d es, %d", operacion.getA(), operacion.getB(),operacion.operacionDivision());
+		if (operacion.getB() == 0) {
+			return "Error = El numero no puede ser Divisible por 0";
+		}
+		return String.format("El resultado de %d / %d es: %d", operacion.getA(), operacion.getB(),operacion.operacionDivision());
 		
 	}
 	
 	
 	public String servicioOrdenar() {
-		return "Numeros Ordenados de mayor a menor: ,"+ operacion.operacionOrdenarNum();
+		return "Numeros Ordenados de mayor a menor: "+ operacion.operacionOrdenarNum();
 		
 	}
 	
@@ -109,7 +112,7 @@ public String seleccionOperacion() {
 	public String servicioParImpar() {
 		String []arreglo = operacion.operacionParImpar();
 		
-		String resultado = (arreglo[0]+"\n" + arreglo[1]);
+		String resultado = (arreglo[0] + arreglo[1]);
 		
 		return resultado;
 	}

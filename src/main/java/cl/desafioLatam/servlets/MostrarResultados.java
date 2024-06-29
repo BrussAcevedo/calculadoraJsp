@@ -47,15 +47,16 @@ public class MostrarResultados extends HttpServlet {
 			numB = Utilidad.parsearValidarEntero(request.getParameter("TxtNumB"));
 			
 			Operacion operacion = new Operacion(numA, numB);
-			OperacionServicio operacionServicio = new OperacionServicio(operacion, "suma");
+			OperacionServicio operacionServicio = new OperacionServicio(operacion, request.getParameter("operacionSelect"));
 			String resultado = operacionServicio.seleccionOperacion();
-			
+			resultado = Utilidad.saltodelineaJvtoHtml(resultado);
 			request.setAttribute("resultado", resultado);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 			
 		} catch (NumeroNoEnteroException e) {
 			String msjError = e.getMessage();
+			msjError = Utilidad.saltodelineaJvtoHtml(msjError);
 			request.setAttribute("resultado", msjError);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}

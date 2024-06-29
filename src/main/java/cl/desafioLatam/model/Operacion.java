@@ -81,10 +81,10 @@ public class Operacion {
 		String numB="";
 		
 		if(a%2==0) {
-			numA = String.format("El numero %d: es Par", a);
+			numA = String.format("El numero %d: es Par \n", a);
 		}else {
 			
-			numA = String.format("El numero %d: es Impar", a);
+			numA = String.format("El numero %d: es Impar \n", a);
 		}
 		
 		if (b%2==0) {

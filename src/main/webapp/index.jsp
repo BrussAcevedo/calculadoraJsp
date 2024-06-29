@@ -35,9 +35,8 @@
 			</div>
 
 			<div class="operacion py-2">
-				<select class="form-select backgroundTransparent" id="txtDias" name="operacionSelect"
-					required>
-					<option selected>Selecciona la operacion...</option>
+				<select class="form-select backgroundTransparent" id="txtDias" name="operacionSelect" required>
+					<option value = "" selected disabled>Selecciona la operacion...</option>
 					<option value="suma">Suma</option>
 					<option value="resta">Resta</option>
 					<option value="multiplicacion">Multiplicación</option>
